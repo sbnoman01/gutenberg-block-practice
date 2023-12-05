@@ -1,18 +1,39 @@
-console.log('block file loaded 1');
-// const registerBlockType = wp.blocks.registerBlockType;
-// var createElement = wp.element.createElement;
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+import { registerBlockType } from '@wordpress/blocks';
 
-import { registerBlockType } from "@wordpress/blocks"
-import { useBlockProps } from "@wordpress/block-editor"
-import "./style.scss";
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+import './style.scss';
 
-registerBlockType("block-course/firstblock", {
-    edit: function(){
-        const BlockProps = useBlockProps();
-        return <h1 {...BlockProps} >Hello world</h1>
-    },
-    save: function() {
-        const BlockProps = useBlockProps.save();
-        return <h1 {...BlockProps}>Hello world renderss</h1>
-    }
-})  
+/**
+ * Internal dependencies
+ */
+import Edit from './edit';
+import save from './save';
+import metadata from './block.json';
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+registerBlockType( metadata.name, {
+	/**
+	 * @see ./edit.js
+	 */
+	edit: Edit,
+
+	/**
+	 * @see ./save.js
+	 */
+	save,
+} );
