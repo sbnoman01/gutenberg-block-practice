@@ -11,31 +11,41 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	RichText,
+	BlockControls,
+	AlignmentToolbar,
+} from '@wordpress/block-editor';
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
 import './editor.scss';
 
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {Element} Element to render.
- */
-export default function Edit() {
+export default function Edit( { attributes, setAttributes } ) {
+	const onChangeAlignment = ( newAlignment ) => {
+		setAttributes( {
+			alignment: newAlignment === undefined ? 'none' : newAlignment,
+		} );
+	};
+
+	const props = useBlockProps( {
+		className: attributes.className,
+	} );
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Wordpress Block – hello from the editor!',
-				'wordpress-block'
-			) }
-		</p>
+		<>
+			<BlockControls>
+				<AlignmentToolbar
+					value={ attributes.alignment }
+					onChange={ onChangeAlignment }
+				/>
+			</BlockControls>
+			<RichText
+				{ ...props }
+				value={ attributes.content }
+				style={ { textAlign: attributes.alignment } }
+				onChange={ ( content ) => setAttributes( { content } ) }
+				placeholder={ __( 'Heading', 'textdomain' ) }
+			/>
+		</>
 	);
 }
