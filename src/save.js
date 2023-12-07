@@ -6,11 +6,11 @@
  */
 import { RichText } from '@wordpress/block-editor';
 
-export default function save( { attributes } ) {
+export default function save({ attributes }) {
 	return (
 		<RichText.Content
-			className={ `gutenberg-examples-align-${ attributes.alignment }` }
-			value={ attributes.content }
+			className={`gutenberg-examples-align-${attributes.alignment}`}
+			value={attributes.content}
 			tagName="h1"
 		/>
 	);
