@@ -21,16 +21,21 @@
 			"type": "string"
 		},
 		"alignment":{
-			"type": "string",
-			"default": "none"
+			"type": "string"
 		},
 		"textBgColor":{
-			"type": "string",
-			"default": "#0000"
+			"type": "string"
 		},
 		"textColor":{
-			"type":"string",
-			"default": "#0000"
+			"type":"string"
+		}
+		,
+		"customTextColor":{
+			"type":"string"
+		}
+		,
+		"customTextBgColor":{
+			"type":"string"
 		}
 	}
 }
