@@ -12,7 +12,11 @@
     "html": false,
     "color": {
       "background": true,
-      "text": true
+      "text": true,
+      "gradients": true
+    },
+    "spacing": {
+      "padding": true
     }
   },
   "textdomain": "wordpress-block",
@@ -37,6 +41,9 @@
       "type": "string"
     },
     "customTextBgColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
       "type": "string"
     }
   }

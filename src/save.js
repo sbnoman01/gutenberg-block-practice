@@ -15,7 +15,7 @@ export default function save({ attributes }) {
 	const {
 		textBgColor,
 		textColor,
-		customTextBgColor
+		// customTextBgColor
 	} = attributes;
 	
 	console.log(attributes);
@@ -43,7 +43,7 @@ export default function save({ attributes }) {
 			{ ...useBlockProps.save({
 				className: classes,
 				style: {
-					backgroundColor: bgClass ? undefined : customTextBgColor,
+					// backgroundColor: bgClass ? undefined : customTextBgColor,
 					textAlign: attributes.alignment
 				}
 			}) }

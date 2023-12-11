@@ -22,6 +22,10 @@ import {
 	withColors
 } from '@wordpress/block-editor';
 
+
+import { __experimentalBoxControl as BoxControl } from '@wordpress/components';
+
+
 import './editor.scss';
 import {
 	SelectControl,
@@ -62,7 +66,9 @@ function Edit(props) {
 	// 	});
 	// }
 
-
+	const paddingControls = (v) => {
+		console.log(v);
+	}
 	return (
 		<>
 			{/* Block control */}
@@ -127,7 +133,7 @@ function Edit(props) {
 			<InspectorControls key="setting">
 
 
-				<PanelColorSettings
+				{/* <PanelColorSettings
 					title={__('Color Settings')}
 					icon="admin-appearance"
 					initialOpen
@@ -145,7 +151,17 @@ function Edit(props) {
 							}
 						]
 					}
-				/>
+				/> */}
+				<PanelBody
+					title={__('Box Controls')}
+					icon="admin-appearance"
+					initialOpen
+				>
+					<BoxControl
+						label='Paddings'
+						onChange={ paddingControls }
+					/>
+				</PanelBody>
 				<PanelBody
 					title={__('Input Fields', 'textdomain')}
 					icon="admin-appearance"
@@ -226,7 +242,8 @@ function Edit(props) {
 			<RichText
 				{...propsVar}
 				value={attributes.content}
-				style={{ backgroundColor: textBgColor.color, textAlign: attributes.alignment, color: textColor.color }}
+				// style={{ backgroundColor: textBgColor.color, textAlign: attributes.alignment, color: textColor.color }}
+				style={{ textAlign: attributes.alignment }}
 				onChange={(content) => setAttributes({ content })}
 				placeholder={__('Heading', 'textdomain')}
 			/>
