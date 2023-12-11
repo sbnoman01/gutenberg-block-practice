@@ -9,7 +9,12 @@
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true
+		}
+		
 	},
 	"textdomain": "wordpress-block",
 	"editorScript": "file:./index.js",
@@ -17,25 +22,23 @@
 	"style": "file:./style-index.css",
 	"viewScript": "file:./view.js",
 	"attributes": {
-		"content":{
+		"content": {
 			"type": "string"
 		},
-		"alignment":{
+		"alignment": {
 			"type": "string"
 		},
-		"textBgColor":{
+		"textBgColor": {
 			"type": "string"
 		},
-		"textColor":{
-			"type":"string"
-		}
-		,
-		"customTextColor":{
-			"type":"string"
-		}
-		,
-		"customTextBgColor":{
-			"type":"string"
+		"textColor": {
+			"type": "string"
+		},
+		"customTextColor": {
+			"type": "string"
+		},
+		"customTextBgColor": {
+			"type": "string"
 		}
 	}
 }

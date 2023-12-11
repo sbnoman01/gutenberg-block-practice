@@ -478,7 +478,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/wordpress-block","version":"0.1.0","title":"Wordpress Block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"wordpress-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"content":{"type":"string"},"alignment":{"type":"string"},"textBgColor":{"type":"string"},"textColor":{"type":"string"},"customTextColor":{"type":"string"},"customTextBgColor":{"type":"string"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/wordpress-block","version":"0.1.0","title":"Wordpress Block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"color":{"background":true,"text":true}},"textdomain":"wordpress-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"content":{"type":"string"},"alignment":{"type":"string"},"textBgColor":{"type":"string"},"textColor":{"type":"string"},"customTextColor":{"type":"string"},"customTextBgColor":{"type":"string"}}}');
 
 /***/ })
 
